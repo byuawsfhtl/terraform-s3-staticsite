@@ -151,6 +151,7 @@ resource "aws_route53_record" "custom_url_a" {
     name                   = aws_cloudfront_distribution.cdn.domain_name
     zone_id                = aws_cloudfront_distribution.cdn.hosted_zone_id
   }
+  allow_overwrite = var.overwrite_records
 }
 
 resource "aws_route53_record" "custom_url_4a" {
@@ -163,6 +164,7 @@ resource "aws_route53_record" "custom_url_4a" {
     name                   = aws_cloudfront_distribution.cdn.domain_name
     zone_id                = aws_cloudfront_distribution.cdn.hosted_zone_id
   }
+  allow_overwrite = var.overwrite_records
 }
 
 resource "aws_route53_record" "additional_a" {
@@ -178,6 +180,7 @@ resource "aws_route53_record" "additional_a" {
     name                   = aws_cloudfront_distribution.cdn.domain_name
     zone_id                = aws_cloudfront_distribution.cdn.hosted_zone_id
   }
+  allow_overwrite = var.overwrite_records
 }
 
 resource "aws_route53_record" "additional_4a" {
@@ -193,6 +196,7 @@ resource "aws_route53_record" "additional_4a" {
     name                   = aws_cloudfront_distribution.cdn.domain_name
     zone_id                = aws_cloudfront_distribution.cdn.hosted_zone_id
   }
+  allow_overwrite = var.overwrite_records
 }
 
 resource "aws_s3_bucket" "website" {
