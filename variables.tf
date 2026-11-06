@@ -97,3 +97,9 @@ variable "cloudfront_function_event_type" {
   default     = "viewer-request"
   description = "The event type for the CloudFront distribution function."
 }
+
+variable "overwrite_records" {
+  type        = bool
+  default     = false
+  description = "Allow overwriting route53 records"
+}
