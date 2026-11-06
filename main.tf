@@ -39,12 +39,13 @@ resource "aws_route53_record" "cert_validation" {
       type   = dvo.resource_record_type
     }
   }
-  provider = aws.aws_n_va
-  name     = each.value.name
-  type     = each.value.type
-  zone_id  = (each.key == var.site_url) ? var.hosted_zone_id : var.additional_domains[index(var.additional_domains.*.domain, each.key)].hosted_zone_id
-  records  = [each.value.record]
-  ttl      = 60
+  provider        = aws.aws_n_va
+  name            = each.value.name
+  type            = each.value.type
+  zone_id         = (each.key == var.site_url) ? var.hosted_zone_id : var.additional_domains[index(var.additional_domains.*.domain, each.key)].hosted_zone_id
+  records         = [each.value.record]
+  ttl             = 60
+  allow_overwrite = var.overwrite_records
 }
 
 resource "random_string" "cf_key" {
